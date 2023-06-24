@@ -1,9 +1,14 @@
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using vega.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
