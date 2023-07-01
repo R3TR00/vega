@@ -20,6 +20,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UsePathBase(new PathString("/api/makes"));
+app.UsePathBase(new PathString("/api/features"));
 app.UseRouting();
 
 
