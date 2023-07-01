@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 
 
 
@@ -11,7 +10,7 @@ export class MakeService {
 
   constructor(private http: HttpClient) { }
   getMakes(){
-    return this.http.get('/api/makess').pipe(map((response: any) => response.json()));
+    return this.http.get('/api/makess')
 
   }
 }
