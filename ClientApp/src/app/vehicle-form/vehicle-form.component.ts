@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleFormComponent implements OnInit{
   makes: any;
-  constructor(private makeService:MakeService) {
+  constructor(private makeService: MakeService) {
     
     
   }
   ngOnInit(): void {
     this.makeService.getMakes().subscribe(makes=>{
-      this.makes = makes
+      this.makes = makes;
       console.log("Makes:", this.makes);
     });
   }
