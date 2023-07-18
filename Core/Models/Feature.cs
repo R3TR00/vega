@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace vega.Models
+namespace vega.Core.Models
 {
     public class Feature
     {

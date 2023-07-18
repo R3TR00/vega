@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using vega.Models;
+using vega.Core.Models;
 
 namespace vega.Persistence
 {
@@ -24,7 +24,7 @@ namespace vega.Persistence
         {
             modelBuilder.Entity<VehicleFeature>().HasKey(vf =>
             new {vf.VehicleId, vf.FeatureId});
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
         }
 
     }

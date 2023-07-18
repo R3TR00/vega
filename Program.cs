@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using vega.Core;
 using vega.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);

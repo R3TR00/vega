@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using vega.Controllers.Resources;
-using vega.Models;
-using vega.Persistence;
+using vega.Core;
+using vega.Core.Models;
 //CRUD operations: Create Read Update Delete
 namespace vega.Controllers
 {
@@ -29,11 +25,11 @@ namespace vega.Controllers
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var model = await Repository.GetVehicle(vehicleResource.ModelId,false);
-            if(model == null){
-                ModelState.AddModelError("ModelId","Invalid ModelId");
-                return BadRequest(ModelState);
-            }
+            // var model = await Repository.GetVehicle(vehicleResource.ModelId,false);
+            // if(model == null){
+            //     ModelState.AddModelError("ModelId","Invalid ModelId");
+            //     return BadRequest(ModelState);
+            // }
 
             var vehicle = mapper.Map<SaveVehicleResource,Vehicle>(vehicleResource);
             vehicle.Lastupdate = DateTime.Now;
