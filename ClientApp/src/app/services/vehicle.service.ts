@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class VehicleService {
-
+  private readonly vehiclesEndpoint = '/api/vehicles';
   constructor(private http: HttpClient) { }
   getMakes(){
     return this.http.get('/api/makess')
@@ -17,12 +17,16 @@ export class VehicleService {
     return this.http.get('/api/features')
   }
   create(vehicle){
-    return this.http.post('/api/vehicles',vehicle)
+    return this.http.post(this.vehiclesEndpoint,vehicle)
   }
   getVehicle(id){
-    return this.http.get('/api/vehicles/'+ id)
+    return this.http.get(this.vehiclesEndpoint + '/' +  id)
   }
   delete(id){
-    return this.http.delete('/api/vehicles/'+ id)
+    return this.http.delete(this.vehiclesEndpoint + '/' + id)
   }
+  getVehicles() {
+    return this.http.get(this.vehiclesEndpoint)
+  }
+
 }

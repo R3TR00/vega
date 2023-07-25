@@ -13,6 +13,7 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 import { VehicleService } from './services/vehicle.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppErrorHandler } from './app.error-handler';
+import { VehicleListComponent } from "./vehicle-list/vehicle-list";
 
 Sentry.init({
   dsn: "https://f98239bb4c9649b59f6e3235f3795332@o4505542615105536.ingest.sentry.io/4505542621790208",
@@ -37,7 +38,8 @@ Sentry.init({
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    VehicleFormComponent
+    VehicleFormComponent,
+    VehicleListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -45,8 +47,9 @@ Sentry.init({
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', redirectTo:'vehicles', pathMatch: 'full' },
       { path:'vehicles/new', component: VehicleFormComponent },
+      { path:'vehicles', component: VehicleListComponent },
       { path:'vehicles/:id', component: VehicleFormComponent },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
