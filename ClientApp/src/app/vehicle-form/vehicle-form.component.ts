@@ -15,7 +15,6 @@ export class VehicleFormComponent implements OnInit{
   makes: any;
   models: any;
   vehicle: SaveVehicle = {
-    id:0,
     makeId:0,
     modelId:0,
     isRegistered: false,
@@ -24,14 +23,15 @@ export class VehicleFormComponent implements OnInit{
       name:'',
       email:'',
       phone:''
-    }
+    },
+    id:0
   };
   features: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private vehicleService: VehicleService) {
-    
+      this.vehicle.id=0;
       route.params.subscribe(p=> {
         this.vehicle.id = +p['id'];
       });
